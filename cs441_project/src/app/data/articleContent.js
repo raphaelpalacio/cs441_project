@@ -16,7 +16,7 @@ export const articleSections = [
     title: "High Denial Rates",
     content: (
       <div>
-        <p className="mb-4">Take North Carolina's Blue Cross Blue Shield for example. They process over <span className="text-red-500 font-medium">19 million claims per year</span>, but slam the door on nearly <span className="text-red-500 font-medium">four million</span> of them. They have a staggering <span className="text-red-500 font-medium">19.5%</span> denial rate. Meanwhile, Oscar Health Plan, Inc., an issuer in Illinois, has an eye watering <span className="text-red-500 font-medium">29.5%</span> claim rejection rate.</p>
+        <p className="mb-4">Take North Carolina&apos;s Blue Cross Blue Shield for example. They process over <span className="text-red-500 font-medium">19 million claims per year</span>, but slam the door on nearly <span className="text-red-500 font-medium">four million</span> of them. They have a staggering <span className="text-red-500 font-medium">19.5%</span> denial rate. Meanwhile, Oscar Health Plan, Inc., an issuer in Illinois, has an eye watering <span className="text-red-500 font-medium">29.5%</span> claim rejection rate.</p>
         <p className="mb-4">Among the highest denial rates, some stand out has particularly harsh:</p>
         <ul className="list-disc pl-6 mb-4">
           <li>Oscar Health Plan, Inc. (Illinois) – <span className="text-red-500 font-medium">29.5%</span> of claims denied.</li>
@@ -52,7 +52,7 @@ export const articleSections = [
       <div>
         <p className="mb-4">This is more than a conversation about numbers—it is a <span className="text-red-500 font-medium">moral reckoning</span>. The data paints a picture, but the real stories lie behind each denial, behind each patient forced to fight a system stacked against them.</p>
         <p className="mb-4">Health is not a privilege. It is a <span className="text-red-500 font-medium">right</span>. And until the scales tip toward fairness, the silent suffering will continue—one denied claim at a time.</p>
-        <p className="mb-4">One of the goals that we have with this project is to highlight the disparity between healthcare needs, claims, and denials. This issue is not just a policy flaw—it's a uniquely American crisis where people must fight for the care they deserve. Submitting a claim shouldn't be an exhausting battle, yet for many, it is.</p>
+        <p className="mb-4">One of the goals that we have with this project is to highlight the disparity between healthcare needs, claims, and denials. This issue is not just a policy flaw—it&apos;s a uniquely American crisis where people must fight for the care they deserve. Submitting a claim shouldn&apos;t be an exhausting battle, yet for many, it is.</p>
         <p className="mb-4">Through our work, we aim to make this issue clear, accessible, and impossible to ignore. By leveraging React and D3, we will transform raw data into interactive visuals that expose the patterns of injustice within the system.</p>
       </div>
     ),
