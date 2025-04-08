@@ -4,26 +4,68 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
 
-const USMapVisualization = ({ stateData }) => {
+const USMapVisualization = ({ stateData, currentSection, highlightedStates = [], showAllTooltips = false }) => {
   const mapRef = useRef(null);
+  const tooltipRef = useRef(null);
   const [usMapReady, setUsMapReady] = useState(false);
   const legendGradientId = useRef(`legend-gradient-${Math.random().toString(36).substr(2, 9)}`);
   
   useEffect(() => {
     console.log("State data received:", stateData);
+    console.log("Current section:", currentSection);
+    console.log("Highlighted states:", highlightedStates);
+    console.log("Show all tooltips:", showAllTooltips);
     
     if (usMapReady) {
       setUsMapReady(false);
     }
-  }, [stateData]);
+  }, [stateData, currentSection, highlightedStates, showAllTooltips]);
+
+  // Create tooltip on component mount
+  useEffect(() => {
+    // Remove any existing tooltips
+    const existingTooltip = document.getElementById('map-tooltip');
+    if (existingTooltip) {
+      existingTooltip.remove();
+    }
+    
+    // Create new tooltip with fixed positioning
+    const tooltip = document.createElement('div');
+    tooltip.id = 'map-tooltip';
+    tooltip.style.position = 'fixed'; // Fixed positioning relative to viewport
+    tooltip.style.visibility = 'hidden';
+    tooltip.style.backgroundColor = 'white';
+    tooltip.style.color = '#333';
+    tooltip.style.padding = '16px';
+    tooltip.style.borderRadius = '6px';
+    tooltip.style.boxShadow = '0 2px 10px rgba(0,0,0,0.3)';
+    tooltip.style.pointerEvents = 'none';
+    tooltip.style.fontSize = '14px';
+    tooltip.style.zIndex = '9999';
+    tooltip.style.maxWidth = '350px';
+    tooltip.style.maxHeight = '400px'; // Limit height to prevent overflow
+    tooltip.style.overflowY = 'auto';
+    tooltip.style.border = '1px solid #ddd';
+    
+    document.body.appendChild(tooltip);
+    tooltipRef.current = tooltip;
+    
+    // Clean up on unmount
+    return () => {
+      if (tooltip && document.body.contains(tooltip)) {
+        document.body.removeChild(tooltip);
+      }
+    };
+  }, []);
 
   useEffect(() => {
-    if (!mapRef.current || usMapReady || !stateData || stateData.length === 0) {
+    if (!mapRef.current || usMapReady || !stateData || stateData.length === 0 || !tooltipRef.current) {
       console.log("Skipping map render:", { 
         hasMapRef: !!mapRef.current,
         usMapReady,
         hasStateData: !!stateData,
-        stateDataLength: stateData?.length || 0
+        stateDataLength: stateData?.length || 0,
+        hasTooltip: !!tooltipRef.current
       });
       return;
     }
@@ -33,9 +75,8 @@ const USMapVisualization = ({ stateData }) => {
     const width = 700;
     const height = 450;
     
-    // Clear previous SVG and tooltips if any
+    // Clear previous SVG
     d3.select(mapRef.current).selectAll("*").remove();
-    d3.select("body").selectAll(".map-tooltip").remove();
     
     const svg = d3.select(mapRef.current)
       .append("svg")
@@ -44,29 +85,149 @@ const USMapVisualization = ({ stateData }) => {
       .attr("height", "100%")
       .attr("preserveAspectRatio", "xMidYMid meet");
     
-    // Create tooltip div
-    const tooltip = d3.select("body")
-      .append("div")
-      .attr("class", "map-tooltip")
-      .style("position", "absolute")
-      .style("visibility", "hidden")
-      .style("background-color", "white")
-      .style("color", "#333")
-      .style("padding", "12px")
-      .style("border-radius", "6px")
-      .style("box-shadow", "0 2px 10px rgba(0,0,0,0.2)")
-      .style("pointer-events", "none")
-      .style("font-size", "14px")
-      .style("z-index", "9999")
-      .style("max-width", "350px")
-      .style("max-height", "80vh")
-      .style("overflow-y", "auto")
-      .style("border", "1px solid #ddd");
-
     // Color scale for denial rates
     const colorScale = d3.scaleThreshold()
       .domain([15, 25]) // Thresholds for color changes
       .range(['#4CAF50', '#FFA500', '#FF0000']); // Green, Orange, Red
+    
+    // Extract the tooltip element
+    const tooltip = tooltipRef.current;
+    
+    // Function to show tooltip
+    function showTooltip(event, state) {
+      if (!state) {
+        console.log("No state data provided to tooltip");
+        return;
+      }
+      
+      // Format denial rate color based on value
+      const stateColor = state.denialRate > 25 ? '#dc2626' : state.denialRate > 15 ? '#f97316' : '#22c55e';
+      
+      // Format healthcare providers with colored bars based on their denial rates
+      const providersHtml = state.healthcareProviders 
+        ? state.healthcareProviders.map(p => {
+            const providerColor = p.denialRate > 25 ? '#dc2626' : p.denialRate > 15 ? '#f97316' : '#22c55e';
+            return `
+              <div style="margin: 8px 0; border-left: 3px solid ${providerColor}; padding-left: 8px;">
+                <div style="font-weight: 500;">${p.name}</div>
+                <div>Denial Rate: <span style="color: ${providerColor}; font-weight: 500;">${p.denialRate}%</span></div>
+              </div>
+            `;
+          }).join("")
+        : "<div>No provider data available</div>";
+
+      // Create tooltip content
+      const tooltipContent = `
+        <div style="border-bottom: 2px solid ${stateColor}; margin-bottom: 12px; padding-bottom: 8px;">
+          <div style="font-weight: bold; font-size: 18px; margin-bottom: 6px;">${state.stateName} (${state.state})</div>
+          <div style="font-size: 16px;">
+            State Denial Rate: <span style="color: ${stateColor}; font-weight: bold;">${state.denialRate}%</span>
+          </div>
+        </div>
+        
+        <div>
+          <div style="font-weight: bold; font-size: 16px; margin-bottom: 8px; border-bottom: 1px solid #ddd; padding-bottom: 4px;">
+            Healthcare Providers (${state.healthcareProviders?.length || 0})
+          </div>
+          ${providersHtml}
+        </div>
+      `;
+      
+      // Update tooltip content
+      tooltip.innerHTML = tooltipContent;
+      tooltip.style.visibility = 'visible';
+      
+      // Calculate tooltip position relative to viewport
+      const padding = 15;
+      const tooltipWidth = 320; // Approximate width
+      const tooltipHeight = 300; // Approximate height
+      
+      // Position to the right of cursor by default
+      let tooltipX = event.clientX + padding;
+      let tooltipY = event.clientY - (tooltipHeight / 4); // Position slightly above cursor
+      
+      // Adjust if tooltip would go off right edge of screen
+      if (tooltipX + tooltipWidth > window.innerWidth) {
+        tooltipX = event.clientX - tooltipWidth - padding;
+      }
+      
+      // Adjust if tooltip would go off bottom of screen
+      if (tooltipY + tooltipHeight > window.innerHeight) {
+        tooltipY = window.innerHeight - tooltipHeight - padding;
+      }
+      
+      // Adjust if tooltip would go off top of screen
+      if (tooltipY < 0) {
+        tooltipY = padding;
+      }
+      
+      tooltip.style.left = `${tooltipX}px`;
+      tooltip.style.top = `${tooltipY}px`;
+
+      console.log("Showing tooltip for:", state.stateName);
+    }
+
+    // Function to hide tooltip
+    function hideTooltip() {
+      tooltip.style.visibility = 'hidden';
+    }
+
+    // Function to move tooltip with cursor
+    function moveTooltip(event) {
+      const padding = 15;
+      const tooltipWidth = 320;
+      const tooltipHeight = 300;
+      
+      let tooltipX = event.clientX + padding;
+      let tooltipY = event.clientY - (tooltipHeight / 4);
+      
+      if (tooltipX + tooltipWidth > window.innerWidth) {
+        tooltipX = event.clientX - tooltipWidth - padding;
+      }
+      
+      if (tooltipY + tooltipHeight > window.innerHeight) {
+        tooltipY = window.innerHeight - tooltipHeight - padding;
+      }
+      
+      if (tooltipY < 0) {
+        tooltipY = padding;
+      }
+      
+      tooltip.style.left = `${tooltipX}px`;
+      tooltip.style.top = `${tooltipY}px`;
+    }
+    
+    // Function to check if a state should be highlighted
+    function shouldHighlightState(stateCode) {
+      // If no states are highlighted (intro or conclusion), show all states normally
+      if (highlightedStates.length === 0) {
+        return true;
+      }
+      // Otherwise, only highlight states in the list
+      return highlightedStates.includes(stateCode);
+    }
+    
+    // Function to get direct DOM event handler
+    function createEventHandlers(element, state, path) {
+      if (!state) return;
+      
+      element.onmouseover = function(event) {
+        console.log(`Mouse over ${state.stateName} (${state.state}), denialRate: ${state.denialRate}`);
+        showTooltip(event, state);
+        path.attr("stroke", "#1f2937")
+            .attr("stroke-width", 2);
+      };
+      
+      element.onmousemove = function(event) {
+        moveTooltip(event);
+      };
+      
+      element.onmouseout = function() {
+        hideTooltip();
+        path.attr("stroke", "#fff")
+            .attr("stroke-width", 0.5);
+      };
+    }
     
     // Load US states GeoJSON
     fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json')
@@ -81,102 +242,71 @@ const USMapVisualization = ({ stateData }) => {
           
           const path = d3.geoPath().projection(projection);
           
-          // Create state name mapping
+          // Create state name and code mappings
           const stateNameById = {};
+          const stateCodeById = {};
+          
+          // Initialize mappings from GeoJSON
           us.objects.states.geometries.forEach(state => {
             stateNameById[state.id] = state.properties.name;
           });
-
-          // Log state names mapping
-          console.log("State names mapping sample:", 
-            Object.entries(stateNameById).slice(0, 5)
+          
+          // Map state names to codes from our data
+          const stateNameToCode = {};
+          stateData.forEach(state => {
+            if (state.stateName && state.state) {
+              stateNameToCode[state.stateName] = state.state;
+            }
+          });
+          
+          // Fill in state codes
+          Object.entries(stateNameById).forEach(([id, name]) => {
+            stateCodeById[id] = stateNameToCode[name];
+          });
+          
+          console.log("State code mapping examples:", 
+            Object.entries(stateCodeById).slice(0, 5).map(([id, code]) => 
+              `${id}: ${stateNameById[id]} → ${code || 'unknown'}`
+            )
           );
 
-          // Log some examples of matching
-          Object.entries(stateNameById).slice(0, 5).forEach(([id, name]) => {
-            const matchedState = stateData.find(s => s.stateName === name);
-            console.log(`State ${name} (ID: ${id}) matched:`, matchedState ? "Yes" : "No");
-          });
-
           // Draw states
-          svg.append("g")
+          const statePaths = svg.append("g")
             .selectAll("path")
             .data(states)
             .join("path")
             .attr("d", path)
             .attr("fill", d => {
               const stateName = stateNameById[d.id];
+              const stateCode = stateCodeById[d.id];
               const state = stateData.find(s => s.stateName === stateName);
-              return state ? colorScale(state.denialRate) : "#ccc";
+              
+              // If this state should be highlighted, use its color based on denial rate
+              if (state && shouldHighlightState(stateCode)) {
+                return colorScale(state.denialRate);
+              } 
+              // Otherwise, use a gray color
+              return "#ccc";
+            })
+            .attr("opacity", d => {
+              const stateCode = stateCodeById[d.id];
+              return shouldHighlightState(stateCode) ? 1 : 0.5;
             })
             .attr("stroke", "#fff")
             .attr("stroke-width", 0.5)
-            .attr("cursor", "pointer")
-            .on("mouseover", function(event, d) {
-              const stateName = stateNameById[d.id];
-              console.log("Mouseover state:", stateName);
-              
-              const state = stateData.find(s => s.stateName === stateName);
-              
-              if (state) {
-                console.log("Found state data:", state);
-                const stateColor = state.denialRate > 25 ? '#dc2626' : state.denialRate > 15 ? '#f97316' : '#22c55e';
-                const providersHtml = state.healthcareProviders 
-                  ? state.healthcareProviders.map(p => {
-                      const providerColor = p.denialRate > 25 ? '#dc2626' : p.denialRate > 15 ? '#f97316' : '#22c55e';
-                      return `
-                        <div style="margin: 8px 0; border-left: 3px solid ${providerColor}; padding-left: 8px;">
-                          <div style="font-weight: 500;">${p.name}</div>
-                          <div>Denial Rate: <span style="color: ${providerColor}; font-weight: 500;">${p.denialRate}%</span></div>
-                        </div>
-                      `;
-                    }).join("")
-                  : "<div>No provider data available</div>";
+            .attr("cursor", "pointer");
 
-                const tooltipContent = `
-                  <div style="border-bottom: 2px solid ${stateColor}; margin-bottom: 12px;">
-                    <div style="font-weight: bold; font-size: 18px; margin-bottom: 4px;">${state.stateName} (${state.state})</div>
-                    <div style="font-size: 16px; margin-bottom: 8px;">
-                      State Denial Rate: <span style="color: ${stateColor}; font-weight: bold;">${state.denialRate}%</span>
-                    </div>
-                  </div>
-                  
-                  <div style="margin-bottom: 8px;">
-                    <div style="font-weight: bold; font-size: 16px; margin-bottom: 4px; border-bottom: 1px solid #ddd; padding-bottom: 4px;">
-                      Healthcare Providers (${state.healthcareProviders?.length || 0})
-                    </div>
-                    ${providersHtml}
-                  </div>
-                `;
-
-                // Position the tooltip near the cursor
-                const mousePos = d3.pointer(event);
-                const svgRect = svg.node().getBoundingClientRect();
-                
-                tooltip
-                  .style("left", (event.clientX + svgRect.left + 15) + "px")
-                  .style("top", (event.clientY + svgRect.top - 10) + "px")
-                  .style("visibility", "visible")
-                  .html(tooltipContent);
-                
-                d3.select(this)
-                  .attr("stroke", "#1f2937")
-                  .attr("stroke-width", 2);
-              }
-            })
-            .on("mousemove", function(event) {
-              const svgRect = svg.node().getBoundingClientRect();
-              
-              tooltip
-                .style("left", (event.clientX + 15) + "px")
-                .style("top", (event.clientY - 10) + "px");
-            })
-            .on("mouseout", function() {
-              tooltip.style("visibility", "hidden");
-              d3.select(this)
-                .attr("stroke", "#fff")
-                .attr("stroke-width", 0.5);
-            });
+          // Add tooltips to all states regardless of highlighting
+          statePaths.each(function(d) {
+            const path = d3.select(this);
+            const stateName = stateNameById[d.id];
+            const state = stateData.find(s => s.stateName === stateName);
+            
+            if (state) {
+              // Always add tooltip event handlers regardless of highlighting
+              createEventHandlers(this, state, path);
+            }
+          });
 
           // Add legend
           const legendWidth = 200;
@@ -261,12 +391,7 @@ const USMapVisualization = ({ stateData }) => {
       .catch(error => {
         console.error("Error loading map data:", error);
       });
-
-    // Cleanup function to remove tooltip when component unmounts
-    return () => {
-      d3.select("body").selectAll(".map-tooltip").remove();
-    };
-  }, [mapRef, stateData, usMapReady]);
+  }, [mapRef, stateData, usMapReady, highlightedStates, showAllTooltips]);
 
   return (
     <div className="relative bg-slate-800 rounded-lg p-4">
@@ -276,6 +401,11 @@ const USMapVisualization = ({ stateData }) => {
       <div ref={mapRef} className="w-full h-[350px] relative"></div>
       <div className="mt-4 text-sm text-gray-300">
         <p>Hover over each state to see detailed information about healthcare providers and their denial rates.</p>
+        {highlightedStates.length > 0 && (
+          <p className="mt-2">
+            Highlighted states: {highlightedStates.join(", ")}
+          </p>
+        )}
       </div>
     </div>
   );

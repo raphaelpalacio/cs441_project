@@ -53,16 +53,25 @@ const ScrollytellingContainer = () => {
 
   console.log("Rendering ScrollytellingContainer with stateData length:", stateData?.length || 0);
 
+  // Define highlighted states for each section
+  // An empty array means all states are highlighted and interactable
+  const highlightedStates = {
+    0: [], // Intro - all states are highlighted
+    1: ["NC", "IL", "IN", "TX", "CO", "MI", "WY", "MT"], // High denial rates section
+    2: ["CA", "TX", "FL", "WY", "MI", "OR", "NY", "MA", "WA"], // Appeals process section
+    3: [] // Conclusion - all states are highlighted
+  };
+
   // Map section visualizations to components with US map for context
   const sectionVisualizations = [
     // Introduction section with US map
-    () => <USMapVisualization stateData={stateData} />,
+    () => <USMapVisualization stateData={stateData} currentSection={currentSection} highlightedStates={highlightedStates[0]} showAllTooltips={true} />,
     
     // Denial rates section with map
-    () => <USMapVisualization stateData={stateData} />,
+    () => <USMapVisualization stateData={stateData} currentSection={currentSection} highlightedStates={highlightedStates[1]} showAllTooltips={true} />,
     
     // Appeals section with map
-    () => <USMapVisualization stateData={stateData} />,
+    () => <USMapVisualization stateData={stateData} currentSection={currentSection} highlightedStates={highlightedStates[2]} showAllTooltips={true} />,
     
     // Summary section
     () => <StatsSummary />

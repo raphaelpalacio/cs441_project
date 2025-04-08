@@ -16,15 +16,15 @@ export const articleSections = [
     title: "High Denial Rates",
     content: (
       <div>
-        <p className="mb-4">Take North Carolina&apos;s Blue Cross Blue Shield for example. They process over <span className="text-red-500 font-medium">19 million claims per year</span>, but slam the door on nearly <span className="text-red-500 font-medium">four million</span> of them. They have a staggering <span className="text-red-500 font-medium">19.5%</span> denial rate. Meanwhile, Oscar Health Plan, Inc., an issuer in Illinois, has an eye watering <span className="text-red-500 font-medium">29.5%</span> claim rejection rate.</p>
-        <p className="mb-4">Among the highest denial rates, some stand out has particularly harsh:</p>
+        <p className="mb-4">Take <span className="text-blue-500 font-bold">North Carolina</span>&apos;s Blue Cross Blue Shield for example. They process over <span className="text-red-500 font-medium">19 million claims per year</span>, but slam the door on nearly <span className="text-red-500 font-medium">four million</span> of them. They have a staggering <span className="text-red-500 font-medium">19.5%</span> denial rate. Meanwhile, Oscar Health Plan, Inc., an issuer in <span className="text-blue-500 font-bold">Illinois</span>, has an eye watering <span className="text-red-500 font-medium">29.5%</span> claim rejection rate.</p>
+        <p className="mb-4">Among the highest denial rates, some states stand out as particularly harsh:</p>
         <ul className="list-disc pl-6 mb-4">
-          <li>Oscar Health Plan, Inc. (Illinois) – <span className="text-red-500 font-medium">29.5%</span> of claims denied.</li>
-          <li>Ambetter from MHS (Indiana) – <span className="text-red-500 font-medium">49.2%</span> of claims denied.</li>
-          <li>Celtic Insurance Company (Multiple States) – <span className="text-red-500 font-medium">49.7%</span> of claims denied.</li>
-          <li>Friday Health Plans (Multiple States) – <span className="text-red-500 font-medium">49.9%</span> of claims denied.</li>
+          <li><span className="text-blue-500 font-bold">Illinois</span> – Oscar Health Plan has <span className="text-red-500 font-medium">29.5%</span> of claims denied.</li>
+          <li><span className="text-blue-500 font-bold">Indiana</span> – Ambetter from MHS has <span className="text-red-500 font-medium">49.2%</span> of claims denied.</li>
+          <li><span className="text-blue-500 font-bold">Texas</span> – Celtic Insurance Company has <span className="text-red-500 font-medium">49.7%</span> of claims denied.</li>
+          <li><span className="text-blue-500 font-bold">Colorado</span> – Friday Health Plans has <span className="text-red-500 font-medium">49.9%</span> of claims denied.</li>
         </ul>
-        <p className="mb-4">Even well established issues with millions of claims under management seem to struggle with fairness. Blue Care Network of Michigan, receives 4.7 million claims and denies over <span className="text-red-500 font-medium">23%</span> of these claims. With all of these claims ones must ask: How many of these denials were rightful, and how many were reckless.</p>
+        <p className="mb-4">Even well established issuers with millions of claims under management seem to struggle with fairness. In <span className="text-blue-500 font-bold">Michigan</span>, Blue Care Network receives 4.7 million claims and denies over <span className="text-red-500 font-medium">23%</span> of these claims. With all of these denials, one must ask: How many were rightful, and how many were reckless? Rural states like <span className="text-blue-500 font-bold">Wyoming</span> and <span className="text-blue-500 font-bold">Montana</span> also face significant challenges with high denial rates, affecting their already limited healthcare access.</p>
       </div>
     ),
   },
@@ -33,15 +33,16 @@ export const articleSections = [
     title: "The Appeals Process",
     content: (
       <div>
-        <p className="mb-4">For those daring enough to challenge these denials, the road is arduous. Internal appeals, the first line of defense, are <span className="text-red-500 font-medium">rarely filed</span>—not for lack of grievances, but for lack of hope. Among major insurers, appeal rates are often a fraction of a fraction.</p>
-        <p className="mb-4">Consider Blue Cross Blue Shield of Wyoming, which denied <span className="text-red-500 font-medium">192,396</span> claims yet saw a mere <span className="text-red-500 font-medium">536</span> internal appeals filed—an appeal rate of just <span className="text-red-500 font-medium">0.0028%</span>. Similarly, Molina Healthcare of California processed over 1.2 million claims, denied 296,000, yet only filed <span className="text-red-500 font-medium">420</span> internal appeals—an appeal rate of <span className="text-red-500 font-medium">0.00035%</span>.</p>
+        <p className="mb-4">For those daring enough to challenge these denials, the road is arduous. Internal appeals, the first line of defense, are <span className="text-red-500 font-medium">rarely filed</span>—not for lack of grievances, but for lack of hope. Among major insurers across states like <span className="text-blue-500 font-bold">California</span>, <span className="text-blue-500 font-bold">Texas</span>, and <span className="text-blue-500 font-bold">Florida</span>, appeal rates are often a fraction of a fraction.</p>
+        <p className="mb-4">Consider Blue Cross Blue Shield of <span className="text-blue-500 font-bold">Wyoming</span>, which denied <span className="text-red-500 font-medium">192,396</span> claims yet saw a mere <span className="text-red-500 font-medium">536</span> internal appeals filed—an appeal rate of just <span className="text-red-500 font-medium">0.0028%</span>. Similarly, Molina Healthcare of <span className="text-blue-500 font-bold">California</span> processed over 1.2 million claims, denied 296,000, yet only filed <span className="text-red-500 font-medium">420</span> internal appeals—an appeal rate of <span className="text-red-500 font-medium">0.00035%</span>.</p>
         <p className="mb-4">Even when appeals are pursued, victory is far from certain. Among insurers with the highest success rates in overturning internal appeals:</p>
         <ul className="list-disc pl-6 mb-4">
-          <li>Blue Care Network of Michigan overturned <span className="text-red-500 font-medium">88.6%</span> of appeals.</li>
-          <li>Moda Health Plan, Inc. overturned <span className="text-red-500 font-medium">76.9%</span>.</li>
-          <li>Providence Health Plan overturned <span className="text-red-500 font-medium">76.2%</span>.</li>
-          <li>McLaren Health Plan Community overturned <span className="text-red-500 font-medium">74.0%</span>.</li>
+          <li><span className="text-blue-500 font-bold">Michigan</span> – Blue Care Network overturned <span className="text-red-500 font-medium">88.6%</span> of appeals.</li>
+          <li><span className="text-blue-500 font-bold">Oregon</span> – Moda Health Plan, Inc. overturned <span className="text-red-500 font-medium">76.9%</span>.</li>
+          <li><span className="text-blue-500 font-bold">Oregon</span> – Providence Health Plan overturned <span className="text-red-500 font-medium">76.2%</span>.</li>
+          <li><span className="text-blue-500 font-bold">Michigan</span> – McLaren Health Plan Community overturned <span className="text-red-500 font-medium">74.0%</span>.</li>
         </ul>
+        <p className="mb-4">Patients in states like <span className="text-blue-500 font-bold">New York</span>, <span className="text-blue-500 font-bold">Massachusetts</span>, and <span className="text-blue-500 font-bold">Washington</span> have somewhat better appeal processes, yet still face significant barriers when challenging healthcare denials.</p>
       </div>
     ),
   },
