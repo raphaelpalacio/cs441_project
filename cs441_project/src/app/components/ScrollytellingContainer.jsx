@@ -4,78 +4,69 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Import Components
-import DenialRatesChart from './DenialRatesChart';
-import AppealRatesChart from './AppealRatesChart';
 import USMapVisualization from './USMapVisualization';
 import StatsSummary from './StatsSummary';
 import { articleSections } from '../data/articleContent';
-import { getInitialData } from '../data/mockData';
+import { getAllStateData } from '../data/dataService';
 
 const ScrollytellingContainer = () => {
   const [currentSection, setCurrentSection] = useState(0);
   const [stateData, setStateData] = useState([]);
-  const [highlightedInsurers, setHighlightedInsurers] = useState([]);
-  const [appealsData, setAppealsData] = useState([]);
   const sections = useRef([]);
   
   // Load data
   useEffect(() => {
-    const { stateData, highlightedInsurers, appealsData } = getInitialData();
-    setStateData(stateData);
-    setHighlightedInsurers(highlightedInsurers);
-    setAppealsData(appealsData);
+    console.log("Loading state data from dataService...");
+    try {
+      const data = getAllStateData();
+      console.log(`Loaded ${data.length} states`);
+      if (data && data.length > 0) {
+        console.log("Sample state data:", data[0]);
+      }
+      setStateData(data);
+    } catch (error) {
+      console.error("Error loading state data:", error);
+    }
+  }, []);
+
+  // Initialize section refs
+  useEffect(() => {
+    sections.current = sections.current.slice(0, articleSections.length);
   }, []);
 
   // Navigation functions
   const goToNextSection = () => {
-    if (currentSection < sections.current.length - 1) {
-      setCurrentSection(currentSection + 1);
-      sections.current[currentSection + 1].scrollIntoView({ behavior: 'smooth' });
+    if (currentSection < articleSections.length - 1) {
+      const nextSection = currentSection + 1;
+      setCurrentSection(nextSection);
+      sections.current[nextSection]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
   const goToPrevSection = () => {
     if (currentSection > 0) {
-      setCurrentSection(currentSection - 1);
-      sections.current[currentSection - 1].scrollIntoView({ behavior: 'smooth' });
+      const prevSection = currentSection - 1;
+      setCurrentSection(prevSection);
+      sections.current[prevSection]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
+
+  console.log("Rendering ScrollytellingContainer with stateData length:", stateData?.length || 0);
 
   // Map section visualizations to components with US map for context
   const sectionVisualizations = [
     // Introduction section with US map
     () => <USMapVisualization stateData={stateData} />,
     
-    // Denial rates section with bar chart and small map
-    () => (
-      <div className="space-y-6">
-        <DenialRatesChart data={highlightedInsurers} />
-        <div className="border-t border-gray-300 pt-4">
-          <h4 className="text-sm font-medium text-gray-700 mb-2">Geographic Context</h4>
-          <USMapVisualization stateData={stateData} />
-        </div>
-      </div>
-    ),
+    // Denial rates section with map
+    () => <USMapVisualization stateData={stateData} />,
     
-    // Appeals section with appeal rates chart
-    () => (
-      <div className="space-y-6">
-        <AppealRatesChart data={appealsData} />
-        <div className="border-t border-gray-300 pt-4">
-          <h4 className="text-sm font-medium text-gray-700 mb-2">Geographic Context</h4>
-          <USMapVisualization stateData={stateData} />
-        </div>
-      </div>
-    ),
+    // Appeals section with map
+    () => <USMapVisualization stateData={stateData} />,
     
     // Summary section
     () => <StatsSummary />
   ];
-
-  useEffect(() => {
-    // Initialize section refs
-    sections.current = sections.current.slice(0, articleSections.length);
-  }, [articleSections.length]);
 
   return (
     <div className="bg-slate-800 min-h-screen text-gray-100 py-8">
@@ -88,7 +79,7 @@ const ScrollytellingContainer = () => {
             {articleSections.map((section, index) => (
               <div 
                 key={section.id}
-                ref={el => (sections.current[index] = el)}
+                ref={el => sections.current[index] = el}
                 className={`mb-8 pb-8 border-b border-gray-600 ${currentSection === index ? 'opacity-100' : 'opacity-70'}`}
               >
                 <h2 className="text-xl font-semibold mb-4">{section.title}</h2>
@@ -101,7 +92,7 @@ const ScrollytellingContainer = () => {
               <button 
                 onClick={goToPrevSection}
                 disabled={currentSection === 0}
-                className={`flex items-center px-4 py-2 rounded-full ${currentSection === 0 ? 'bg-gray-600 text-gray-400' : 'bg-blue-600 hover:bg-blue-700'}`}
+                className={`flex items-center px-4 py-2 rounded-full ${currentSection === 0 ? 'bg-gray-600 text-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'}`}
               >
                 <ChevronLeft size={16} className="mr-1" />
                 Previous
@@ -109,7 +100,7 @@ const ScrollytellingContainer = () => {
               <button 
                 onClick={goToNextSection}
                 disabled={currentSection === articleSections.length - 1}
-                className={`flex items-center px-4 py-2 rounded-full ${currentSection === articleSections.length - 1 ? 'bg-gray-600 text-gray-400' : 'bg-blue-600 hover:bg-blue-700'}`}
+                className={`flex items-center px-4 py-2 rounded-full ${currentSection === articleSections.length - 1 ? 'bg-gray-600 text-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'}`}
               >
                 Next
                 <ChevronRight size={16} className="ml-1" />
