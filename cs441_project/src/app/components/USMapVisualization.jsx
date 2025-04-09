@@ -192,6 +192,16 @@ const USMapVisualization = ({ stateData, currentSection, highlightedStates = [],
     tooltip.style.top = `${tooltipY}px`;
   }
 
+  // Get color based on denial rate and whether the state is highlighted
+  const getStateColor = (stateData, isHighlighted) => {
+    if (!isHighlighted) {
+      return '#666666'; // Grey out non-highlighted states
+    }
+    
+    const rate = stateData?.denialRate || 0;
+    return rate > 25 ? '#F44336' : rate > 15 ? '#FFC107' : '#4CAF50';
+  };
+
   // Map rendering useEffect
   useEffect(() => {
     if (!mapRef.current || usMapReady || !stateData || stateData.length === 0) {

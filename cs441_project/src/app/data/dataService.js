@@ -1,14 +1,28 @@
 "use client";
 
 import kffData from './kffTransparencyData.json';
+import additionalData from './additionalStatesData.json';
+import additionalData2 from './additionalStatesData2.json';
+import additionalData3 from './additionalStatesData3.json';
+
+// Merge all state data
+const mergedData = {
+  ...kffData,
+  stateData: [
+    ...kffData.stateData,
+    ...additionalData.additionalStates,
+    ...additionalData2.moreStates,
+    ...additionalData3.finalStates
+  ]
+};
 
 /**
  * Get all data required for the healthcare visualizations
  * @returns {Object} Object containing stateData, highlightedInsurers, and appealsData
  */
 export const getAllData = () => {
-  console.log("Getting all data from KFF Transparency dataset:", kffData !== undefined);
-  return kffData;
+  console.log("Getting all data from KFF Transparency dataset:", mergedData !== undefined);
+  return mergedData;
 };
 
 /**
@@ -17,7 +31,7 @@ export const getAllData = () => {
  * @returns {Object} State data including healthcare providers
  */
 export const getStateData = (stateCode) => {
-  const state = kffData.stateData.find(state => state.state === stateCode);
+  const state = mergedData.stateData.find(state => state.state === stateCode);
   console.log(`Getting state data for ${stateCode}:`, state !== undefined);
   return state;
 };
@@ -27,8 +41,8 @@ export const getStateData = (stateCode) => {
  * @returns {Array} Array of state data
  */
 export const getAllStateData = () => {
-  console.log("Getting all state data:", kffData.stateData.length);
-  return kffData.stateData;
+  console.log("Getting all state data:", mergedData.stateData.length);
+  return mergedData.stateData;
 };
 
 /**
@@ -36,8 +50,8 @@ export const getAllStateData = () => {
  * @returns {Array} Array of insurers with high denial rates
  */
 export const getHighlightedInsurers = () => {
-  console.log("Getting highlighted insurers:", kffData.highlightedInsurers.length);
-  return kffData.highlightedInsurers;
+  console.log("Getting highlighted insurers:", mergedData.highlightedInsurers.length);
+  return mergedData.highlightedInsurers;
 };
 
 /**
@@ -45,6 +59,6 @@ export const getHighlightedInsurers = () => {
  * @returns {Array} Array of insurers with appeal overturn rates
  */
 export const getAppealsData = () => {
-  console.log("Getting appeals data:", kffData.appealsData.length);
-  return kffData.appealsData;
+  console.log("Getting appeals data:", mergedData.appealsData.length);
+  return mergedData.appealsData;
 }; 

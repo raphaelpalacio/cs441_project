@@ -1,0 +1,64 @@
+{
+  "finalStates": [
+    { 
+      "state": "UT", 
+      "stateName": "Utah", 
+      "denialRate": 15.5,
+      "appealRate": 0.0042,
+      "healthcareProviders": [
+        { "name": "SelectHealth", "denialRate": 15.5, "overturnRate": 42.7, "appealsCount": 138 },
+        { "name": "Regence BlueCross BlueShield of Utah", "denialRate": 13.8, "overturnRate": 45.3, "appealsCount": 116 }
+      ]
+    },
+    { 
+      "state": "VT", 
+      "stateName": "Vermont", 
+      "denialRate": 10.8,
+      "appealRate": 0.0064,
+      "healthcareProviders": [
+        { "name": "Blue Cross Blue Shield of Vermont", "denialRate": 10.8, "overturnRate": 49.5, "appealsCount": 76 },
+        { "name": "MVP Health Care Vermont", "denialRate": 9.5, "overturnRate": 51.8, "appealsCount": 68 }
+      ]
+    },
+    { 
+      "state": "VA", 
+      "stateName": "Virginia", 
+      "denialRate": 16.7,
+      "appealRate": 0.0047,
+      "healthcareProviders": [
+        { "name": "Anthem HealthKeepers", "denialRate": 16.7, "overturnRate": 43.9, "appealsCount": 196 },
+        { "name": "Optima Health", "denialRate": 14.9, "overturnRate": 40.7, "appealsCount": 162 }
+      ]
+    },
+    { 
+      "state": "WV", 
+      "stateName": "West Virginia", 
+      "denialRate": 18.2,
+      "appealRate": 0.0032,
+      "healthcareProviders": [
+        { "name": "Highmark Blue Cross Blue Shield West Virginia", "denialRate": 18.2, "overturnRate": 39.3, "appealsCount": 114 },
+        { "name": "The Health Plan of the Upper Ohio Valley", "denialRate": 16.4, "overturnRate": 36.7, "appealsCount": 93 }
+      ]
+    },
+    { 
+      "state": "WI", 
+      "stateName": "Wisconsin", 
+      "denialRate": 16.2,
+      "appealRate": 0.0049,
+      "healthcareProviders": [
+        { "name": "Anthem Blue Cross Blue Shield Wisconsin", "denialRate": 16.2, "overturnRate": 44.6, "appealsCount": 187 },
+        { "name": "Dean Health Plan", "denialRate": 14.5, "overturnRate": 42.3, "appealsCount": 163 }
+      ]
+    },
+    { 
+      "state": "DC", 
+      "stateName": "District of Columbia", 
+      "denialRate": 14.3,
+      "appealRate": 0.0056,
+      "healthcareProviders": [
+        { "name": "CareFirst BlueCross BlueShield", "denialRate": 14.3, "overturnRate": 46.8, "appealsCount": 127 },
+        { "name": "Kaiser Permanente Mid-Atlantic", "denialRate": 12.7, "overturnRate": 49.2, "appealsCount": 108 }
+      ]
+    }
+  ]
+} 

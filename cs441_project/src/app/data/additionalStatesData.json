@@ -1,0 +1,166 @@
+{
+  "additionalStates": [
+    { 
+      "state": "AK", 
+      "stateName": "Alaska", 
+      "denialRate": 14.2,
+      "appealRate": 0.0035,
+      "healthcareProviders": [
+        { "name": "Premera Blue Cross Blue Shield of Alaska", "denialRate": 14.2, "overturnRate": 41.8, "appealsCount": 89 },
+        { "name": "Moda Health Alaska", "denialRate": 12.8, "overturnRate": 38.2, "appealsCount": 63 }
+      ]
+    },
+    { 
+      "state": "AZ", 
+      "stateName": "Arizona", 
+      "denialRate": 18.9,
+      "appealRate": 0.0052,
+      "healthcareProviders": [
+        { "name": "Blue Cross Blue Shield of Arizona", "denialRate": 18.9, "overturnRate": 42.5, "appealsCount": 231 },
+        { "name": "Health Net of Arizona", "denialRate": 16.5, "overturnRate": 39.8, "appealsCount": 177 },
+        { "name": "Cigna Arizona", "denialRate": 15.2, "overturnRate": 41.3, "appealsCount": 146 }
+      ]
+    },
+    { 
+      "state": "AR", 
+      "stateName": "Arkansas", 
+      "denialRate": 14.1,
+      "appealRate": 0.0039,
+      "healthcareProviders": [
+        { "name": "Arkansas Blue Cross Blue Shield", "denialRate": 14.1, "overturnRate": 40.2, "appealsCount": 153 },
+        { "name": "QualChoice Health Insurance", "denialRate": 12.3, "overturnRate": 37.9, "appealsCount": 118 }
+      ]
+    },
+    { 
+      "state": "CT", 
+      "stateName": "Connecticut", 
+      "denialRate": 12.6,
+      "appealRate": 0.0067,
+      "healthcareProviders": [
+        { "name": "Anthem Blue Cross Blue Shield Connecticut", "denialRate": 12.6, "overturnRate": 44.8, "appealsCount": 173 },
+        { "name": "ConnectiCare", "denialRate": 11.2, "overturnRate": 42.5, "appealsCount": 153 }
+      ]
+    },
+    { 
+      "state": "DE", 
+      "stateName": "Delaware", 
+      "denialRate": 27.8,
+      "appealRate": 0.0028,
+      "healthcareProviders": [
+        { "name": "Highmark Blue Cross Blue Shield Delaware", "denialRate": 27.8, "overturnRate": 39.2, "appealsCount": 104 },
+        { "name": "Aetna Delaware", "denialRate": 24.5, "overturnRate": 36.3, "appealsCount": 87 }
+      ]
+    },
+    { 
+      "state": "GA", 
+      "stateName": "Georgia", 
+      "denialRate": 17.1,
+      "appealRate": 0.0043,
+      "healthcareProviders": [
+        { "name": "Blue Cross Blue Shield of Georgia", "denialRate": 17.1, "overturnRate": 41.3, "appealsCount": 196 },
+        { "name": "Kaiser Permanente Georgia", "denialRate": 15.3, "overturnRate": 45.8, "appealsCount": 162 }
+      ]
+    },
+    { 
+      "state": "HI", 
+      "stateName": "Hawaii", 
+      "denialRate": 10.3,
+      "appealRate": 0.0058,
+      "healthcareProviders": [
+        { "name": "Hawaii Medical Service Association", "denialRate": 10.3, "overturnRate": 47.2, "appealsCount": 83 },
+        { "name": "Kaiser Permanente Hawaii", "denialRate": 11.5, "overturnRate": 49.3, "appealsCount": 94 }
+      ]
+    },
+    { 
+      "state": "ID", 
+      "stateName": "Idaho", 
+      "denialRate": 13.8,
+      "appealRate": 0.0042,
+      "healthcareProviders": [
+        { "name": "Blue Cross of Idaho", "denialRate": 13.8, "overturnRate": 40.9, "appealsCount": 112 },
+        { "name": "PacificSource Health Plans", "denialRate": 14.2, "overturnRate": 42.8, "appealsCount": 127 },
+        { "name": "SelectHealth Idaho", "denialRate": 12.9, "overturnRate": 38.5, "appealsCount": 98 }
+      ]
+    },
+    { 
+      "state": "IA", 
+      "stateName": "Iowa", 
+      "denialRate": 13.6,
+      "appealRate": 0.0045,
+      "healthcareProviders": [
+        { "name": "Wellmark Blue Cross Blue Shield", "denialRate": 13.6, "overturnRate": 41.7, "appealsCount": 143 },
+        { "name": "UnitedHealthcare of Iowa", "denialRate": 12.3, "overturnRate": 38.5, "appealsCount": 127 }
+      ]
+    },
+    { 
+      "state": "KS", 
+      "stateName": "Kansas", 
+      "denialRate": 22.1,
+      "appealRate": 0.0033,
+      "healthcareProviders": [
+        { "name": "Blue Cross Blue Shield of Kansas", "denialRate": 22.1, "overturnRate": 37.9, "appealsCount": 163 },
+        { "name": "UnitedHealthcare of Kansas", "denialRate": 19.3, "overturnRate": 34.6, "appealsCount": 142 }
+      ]
+    },
+    { 
+      "state": "KY", 
+      "stateName": "Kentucky", 
+      "denialRate": 18.5,
+      "appealRate": 0.0037,
+      "healthcareProviders": [
+        { "name": "Anthem Blue Cross Blue Shield Kentucky", "denialRate": 18.5, "overturnRate": 40.3, "appealsCount": 184 },
+        { "name": "Humana Kentucky", "denialRate": 16.7, "overturnRate": 38.5, "appealsCount": 157 }
+      ]
+    },
+    { 
+      "state": "LA", 
+      "stateName": "Louisiana", 
+      "denialRate": 31.6,
+      "appealRate": 0.0026,
+      "healthcareProviders": [
+        { "name": "Blue Cross Blue Shield of Louisiana", "denialRate": 31.6, "overturnRate": 36.8, "appealsCount": 213 },
+        { "name": "UnitedHealthcare of Louisiana", "denialRate": 27.4, "overturnRate": 33.2, "appealsCount": 175 }
+      ]
+    },
+    { 
+      "state": "ME", 
+      "stateName": "Maine", 
+      "denialRate": 11.8,
+      "appealRate": 0.0054,
+      "healthcareProviders": [
+        { "name": "Anthem Blue Cross Blue Shield Maine", "denialRate": 11.8, "overturnRate": 44.6, "appealsCount": 98 },
+        { "name": "Harvard Pilgrim Maine", "denialRate": 10.2, "overturnRate": 46.8, "appealsCount": 87 }
+      ]
+    },
+    { 
+      "state": "MD", 
+      "stateName": "Maryland", 
+      "denialRate": 15.9,
+      "appealRate": 0.0059,
+      "healthcareProviders": [
+        { "name": "CareFirst BlueCross BlueShield", "denialRate": 15.9, "overturnRate": 45.7, "appealsCount": 203 },
+        { "name": "Kaiser Permanente Maryland", "denialRate": 13.8, "overturnRate": 48.3, "appealsCount": 176 }
+      ]
+    },
+    { 
+      "state": "MN", 
+      "stateName": "Minnesota", 
+      "denialRate": 13.2,
+      "appealRate": 0.0062,
+      "healthcareProviders": [
+        { "name": "Blue Cross Blue Shield of Minnesota", "denialRate": 13.2, "overturnRate": 46.8, "appealsCount": 187 },
+        { "name": "HealthPartners", "denialRate": 11.7, "overturnRate": 48.9, "appealsCount": 163 }
+      ]
+    },
+    { 
+      "state": "MS", 
+      "stateName": "Mississippi", 
+      "denialRate": 21.7,
+      "appealRate": 0.0029,
+      "healthcareProviders": [
+        { "name": "Blue Cross Blue Shield of Mississippi", "denialRate": 21.7, "overturnRate": 37.2, "appealsCount": 154 },
+        { "name": "UnitedHealthcare of Mississippi", "denialRate": 19.3, "overturnRate": 34.6, "appealsCount": 132 }
+      ]
+    }
+  ]
+} 

@@ -1,0 +1,164 @@
+{
+  "moreStates": [
+    { 
+      "state": "MO", 
+      "stateName": "Missouri", 
+      "denialRate": 18.3,
+      "appealRate": 0.0041,
+      "healthcareProviders": [
+        { "name": "Anthem Blue Cross Blue Shield Missouri", "denialRate": 18.3, "overturnRate": 42.7, "appealsCount": 193 },
+        { "name": "UnitedHealthcare of Missouri", "denialRate": 16.1, "overturnRate": 38.9, "appealsCount": 163 }
+      ]
+    },
+    { 
+      "state": "MT", 
+      "stateName": "Montana", 
+      "denialRate": 14.9,
+      "appealRate": 0.0036,
+      "healthcareProviders": [
+        { "name": "Blue Cross Blue Shield of Montana", "denialRate": 14.9, "overturnRate": 41.3, "appealsCount": 87 },
+        { "name": "PacificSource Health Plans", "denialRate": 13.2, "overturnRate": 43.5, "appealsCount": 74 }
+      ]
+    },
+    { 
+      "state": "NE", 
+      "stateName": "Nebraska", 
+      "denialRate": 16.3,
+      "appealRate": 0.0034,
+      "healthcareProviders": [
+        { "name": "Blue Cross Blue Shield of Nebraska", "denialRate": 16.3, "overturnRate": 39.8, "appealsCount": 104 },
+        { "name": "UnitedHealthcare of Nebraska", "denialRate": 14.7, "overturnRate": 36.2, "appealsCount": 86 }
+      ]
+    },
+    { 
+      "state": "NV", 
+      "stateName": "Nevada", 
+      "denialRate": 17.5,
+      "appealRate": 0.0038,
+      "healthcareProviders": [
+        { "name": "Anthem Blue Cross Blue Shield Nevada", "denialRate": 17.5, "overturnRate": 40.2, "appealsCount": 147 },
+        { "name": "Health Plan of Nevada", "denialRate": 15.8, "overturnRate": 37.9, "appealsCount": 126 }
+      ]
+    },
+    { 
+      "state": "NH", 
+      "stateName": "New Hampshire", 
+      "denialRate": 13.1,
+      "appealRate": 0.0053,
+      "healthcareProviders": [
+        { "name": "Anthem Blue Cross Blue Shield New Hampshire", "denialRate": 13.1, "overturnRate": 45.2, "appealsCount": 96 },
+        { "name": "Harvard Pilgrim Health Care", "denialRate": 11.4, "overturnRate": 47.8, "appealsCount": 84 }
+      ]
+    },
+    { 
+      "state": "NJ", 
+      "stateName": "New Jersey", 
+      "denialRate": 15.6,
+      "appealRate": 0.0048,
+      "healthcareProviders": [
+        { "name": "Horizon Blue Cross Blue Shield of New Jersey", "denialRate": 15.6, "overturnRate": 43.7, "appealsCount": 217 },
+        { "name": "AmeriHealth New Jersey", "denialRate": 13.9, "overturnRate": 40.8, "appealsCount": 183 }
+      ]
+    },
+    { 
+      "state": "NM", 
+      "stateName": "New Mexico", 
+      "denialRate": 16.8,
+      "appealRate": 0.0029,
+      "healthcareProviders": [
+        { "name": "Blue Cross Blue Shield of New Mexico", "denialRate": 16.8, "overturnRate": 38.2, "appealsCount": 103 },
+        { "name": "Presbyterian Health Plan", "denialRate": 14.5, "overturnRate": 35.7, "appealsCount": 86 }
+      ]
+    },
+    { 
+      "state": "NC", 
+      "stateName": "North Carolina", 
+      "denialRate": 19.5,
+      "appealRate": 0.0036,
+      "healthcareProviders": [
+        { "name": "Blue Cross Blue Shield of North Carolina", "denialRate": 19.5, "overturnRate": 43.6, "appealsCount": 243 },
+        { "name": "UnitedHealthcare of North Carolina", "denialRate": 17.9, "overturnRate": 39.5, "appealsCount": 198 }
+      ]
+    },
+    { 
+      "state": "ND", 
+      "stateName": "North Dakota", 
+      "denialRate": 12.9,
+      "appealRate": 0.0041,
+      "healthcareProviders": [
+        { "name": "Blue Cross Blue Shield of North Dakota", "denialRate": 12.9, "overturnRate": 42.4, "appealsCount": 94 },
+        { "name": "Sanford Health Plan", "denialRate": 11.2, "overturnRate": 44.8, "appealsCount": 82 }
+      ]
+    },
+    { 
+      "state": "OH", 
+      "stateName": "Ohio", 
+      "denialRate": 17.6,
+      "appealRate": 0.0044,
+      "healthcareProviders": [
+        { "name": "Anthem Blue Cross Blue Shield Ohio", "denialRate": 17.6, "overturnRate": 41.3, "appealsCount": 219 },
+        { "name": "Medical Mutual of Ohio", "denialRate": 15.9, "overturnRate": 38.7, "appealsCount": 187 }
+      ]
+    },
+    { 
+      "state": "OK", 
+      "stateName": "Oklahoma", 
+      "denialRate": 21.5,
+      "appealRate": 0.0031,
+      "healthcareProviders": [
+        { "name": "Blue Cross Blue Shield of Oklahoma", "denialRate": 21.5, "overturnRate": 37.8, "appealsCount": 145 },
+        { "name": "CommunityCare Oklahoma", "denialRate": 19.4, "overturnRate": 35.3, "appealsCount": 127 }
+      ]
+    },
+    { 
+      "state": "PA", 
+      "stateName": "Pennsylvania", 
+      "denialRate": 15.1,
+      "appealRate": 0.0057,
+      "healthcareProviders": [
+        { "name": "Highmark Blue Cross Blue Shield", "denialRate": 15.1, "overturnRate": 46.3, "appealsCount": 227 },
+        { "name": "Independence Blue Cross", "denialRate": 13.7, "overturnRate": 43.8, "appealsCount": 194 }
+      ]
+    },
+    { 
+      "state": "RI", 
+      "stateName": "Rhode Island", 
+      "denialRate": 11.9,
+      "appealRate": 0.0062,
+      "healthcareProviders": [
+        { "name": "Blue Cross Blue Shield of Rhode Island", "denialRate": 11.9, "overturnRate": 47.1, "appealsCount": 89 },
+        { "name": "UnitedHealthcare of Rhode Island", "denialRate": 10.3, "overturnRate": 44.8, "appealsCount": 75 }
+      ]
+    },
+    { 
+      "state": "SC", 
+      "stateName": "South Carolina", 
+      "denialRate": 20.3,
+      "appealRate": 0.0033,
+      "healthcareProviders": [
+        { "name": "BlueChoice HealthPlan of South Carolina", "denialRate": 20.3, "overturnRate": 39.7, "appealsCount": 154 },
+        { "name": "UnitedHealthcare of South Carolina", "denialRate": 18.6, "overturnRate": 36.2, "appealsCount": 131 }
+      ]
+    },
+    { 
+      "state": "SD", 
+      "stateName": "South Dakota", 
+      "denialRate": 14.7,
+      "appealRate": 0.0037,
+      "healthcareProviders": [
+        { "name": "Wellmark Blue Cross Blue Shield", "denialRate": 14.7, "overturnRate": 40.5, "appealsCount": 84 },
+        { "name": "Sanford Health Plan", "denialRate": 12.9, "overturnRate": 42.8, "appealsCount": 72 }
+      ]
+    },
+    { 
+      "state": "TN", 
+      "stateName": "Tennessee", 
+      "denialRate": 19.9,
+      "appealRate": 0.0035,
+      "healthcareProviders": [
+        { "name": "BlueCross BlueShield of Tennessee", "denialRate": 19.9, "overturnRate": 40.6, "appealsCount": 187 },
+        { "name": "Cigna Tennessee", "denialRate": 17.8, "overturnRate": 37.4, "appealsCount": 161 }
+      ]
+    }
+  ]
+} 
