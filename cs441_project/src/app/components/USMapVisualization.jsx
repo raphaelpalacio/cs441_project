@@ -65,37 +65,66 @@ const USMapVisualization = ({ stateData, currentSection, highlightedStates = [],
     const tooltip = tooltipRef.current;
     
     // Format color based on denial rate
-    const stateColor = state.denialRate > 25 ? '#dc2626' : state.denialRate > 15 ? '#f97316' : '#22c55e';
+    const stateColor = state.denialRate > 25 ? '#F44336' : state.denialRate > 15 ? '#FFC107' : '#4CAF50';
     
-    // Format healthcare providers
-    const providersHtml = state.healthcareProviders 
-      ? state.healthcareProviders.map(p => {
-          const providerColor = p.denialRate > 25 ? '#dc2626' : p.denialRate > 15 ? '#f97316' : '#22c55e';
-          return `
-            <div style="margin: 8px 0; border-left: 3px solid ${providerColor}; padding-left: 8px;">
-              <div style="font-weight: 500;">${p.name}</div>
-              <div>Denial Rate: <span style="color: ${providerColor}; font-weight: 500;">${p.denialRate}%</span></div>
-            </div>
-          `;
-        }).join("")
-      : "<div>No provider data available</div>";
+    // Get color based on denial rate
+    const getDenialRateColor = (rate) => {
+      return rate > 25 ? '#F44336' : rate > 15 ? '#FFC107' : '#4CAF50';
+    };
+    
+    // Format healthcare providers for tooltip
+    const providersHtml = state.healthcareProviders?.map(provider => {
+      const denialRateColor = getDenialRateColor(provider.denialRate);
+      let html = `
+        <div style="padding: 4px 0; border-bottom: 1px solid #333;">
+          <div style="font-weight: medium; color: white;">${provider.name}</div>
+          <div style="font-size: 14px; color: #e0e0e0;">
+            Denial Rate: <span style="color: ${denialRateColor}; font-weight: bold;">${provider.denialRate}%</span>
+          </div>
+      `;
+      
+      // Add overturn rate if available
+      if (provider.overturnRate) {
+        html += `<div style="font-size: 14px; color: #e0e0e0;">
+          Appeal Overturn Rate: <span style="color: #4ade80; font-weight: bold;">${provider.overturnRate}%</span>
+        </div>`;
+      }
+      
+      html += `</div>`;
+      return html;
+    }).join('') || '<div style="color: #999;">No provider data available</div>';
     
     // Create tooltip content
     const tooltipContent = `
-      <div style="border-bottom: 2px solid ${stateColor}; margin-bottom: 12px; padding-bottom: 8px;">
-        <div style="font-weight: bold; font-size: 18px; margin-bottom: 6px;">${state.stateName} (${state.state})</div>
-        <div style="font-size: 16px;">
+      <div style="border-bottom: 2px solid ${stateColor}; margin-bottom: 12px; padding-bottom: 10px;">
+        <div style="font-weight: bold; font-size: 18px; margin-bottom: 6px; color: white;">${state.stateName} (${state.state})</div>
+        <div style="font-size: 16px; color: #e0e0e0;">
           State Denial Rate: <span style="color: ${stateColor}; font-weight: bold;">${state.denialRate}%</span>
         </div>
       </div>
       
       <div>
-        <div style="font-weight: bold; font-size: 16px; margin-bottom: 8px; border-bottom: 1px solid #ddd; padding-bottom: 4px;">
+        <div style="font-weight: bold; font-size: 16px; margin-bottom: 8px; border-bottom: 1px solid #333; padding-bottom: 4px; color: white;">
           Healthcare Providers (${state.healthcareProviders?.length || 0})
         </div>
         ${providersHtml}
       </div>
+      
+      <div style="margin-top: 10px; font-size: 11px; color: #999; border-top: 1px solid #333; padding-top: 8px;">
+        Data source: KFF Health Insurance Marketplace Transparency Data
+      </div>
     `;
+    
+    // Update tooltip styles
+    Object.assign(tooltip.style, {
+      backgroundColor: '#1a1a1a',
+      color: 'white',
+      border: '1px solid #333',
+      borderRadius: '6px',
+      boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
+      padding: '16px',
+      maxWidth: '350px',
+    });
     
     // Update tooltip content and make it visible
     tooltip.innerHTML = tooltipContent;
@@ -193,7 +222,7 @@ const USMapVisualization = ({ stateData, currentSection, highlightedStates = [],
     // Color scale for denial rates
     const colorScale = d3.scaleThreshold()
       .domain([15, 25]) // Thresholds for color changes
-      .range(['#4CAF50', '#FFA500', '#FF0000']); // Green, Orange, Red
+      .range(['#4CAF50', '#FFC107', '#F44336']); // Green, Yellow, Red
     
     // Load US states GeoJSON
     fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json')
@@ -320,11 +349,11 @@ const USMapVisualization = ({ stateData, currentSection, highlightedStates = [],
           
           linearGradient.append("stop")
             .attr("offset", "50%")
-            .attr("stop-color", "#FFA500");
+            .attr("stop-color", "#FFC107");
           
           linearGradient.append("stop")
             .attr("offset", "100%")
-            .attr("stop-color", "#FF0000");
+            .attr("stop-color", "#F44336");
           
           // Add legend background
           svg.append("rect")
@@ -386,17 +415,44 @@ const USMapVisualization = ({ stateData, currentSection, highlightedStates = [],
   }, [mapRef, stateData, usMapReady, highlightedStates, currentSection]);
 
   return (
-    <div className="relative bg-slate-800 rounded-lg p-4">
-      <div className="flex justify-between items-center mb-4">
-        <h3 className="text-lg font-medium text-white">Healthcare Claims Denial Rates by State</h3>
+    <div className="relative bg-black rounded-lg p-6 shadow-xl border border-zinc-800">
+      <div className="flex justify-between items-center mb-5">
+        <h3 className="text-xl font-semibold text-white">Healthcare Claims Denial Rates by State</h3>
       </div>
-      <div ref={mapRef} className="w-full h-[350px] relative"></div>
-      <div className="mt-4 text-sm text-gray-300">
-        <p>Hover over each state to see detailed information about healthcare providers and their denial rates.</p>
+      <div 
+        ref={mapRef} 
+        className="w-full h-[350px] relative bg-zinc-900 rounded-lg overflow-hidden p-2 border border-zinc-800"
+      ></div>
+      <div className="mt-5 text-sm text-gray-300">
+        <p className="italic">Hover over each state to see detailed information about healthcare providers and their denial rates.</p>
         {highlightedStates && highlightedStates.length > 0 && (
-          <p className="mt-2">
-            Highlighted states: {highlightedStates.join(", ")}
-          </p>
+          <div className="mt-3 p-3 bg-zinc-900 rounded-md border border-zinc-800">
+            <p className="font-medium text-white mb-2">
+              Highlighted states:
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {highlightedStates.map(state => {
+                // Find state data to determine color based on denial rate
+                const stateInfo = stateData?.find(s => s.state === state);
+                const stateColor = stateInfo?.denialRate > 25 ? '#F44336' : 
+                                 stateInfo?.denialRate > 15 ? '#FFC107' : '#4CAF50';
+                
+                return (
+                  <span 
+                    key={state} 
+                    className="px-3 py-1 rounded-md text-sm font-medium flex items-center"
+                    style={{ 
+                      backgroundColor: 'rgba(0,0,0,0.7)', 
+                      color: 'white',
+                      border: `2px solid ${stateColor || '#888'}`
+                    }}
+                  >
+                    {state}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
         )}
       </div>
     </div>

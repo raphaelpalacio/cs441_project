@@ -57,8 +57,8 @@ const ScrollytellingContainer = () => {
   // An empty array means all states are highlighted and interactable
   const highlightedStates = {
     0: [], // Intro - all states are highlighted
-    1: ["NC", "IL", "IN", "TX", "CO", "MI", "WY", "MT"], // High denial rates section
-    2: ["CA", "TX", "FL", "WY", "MI", "OR", "NY", "MA", "WA"], // Appeals process section
+    1: ["IL", "IN", "TX", "CO"], // High denial rates section - only the states mentioned in the bullet points
+    2: ["MI", "OR"], // Appeals process section - only the states with high appeal overturn rates
     3: [] // Conclusion - all states are highlighted
   };
 
@@ -78,30 +78,30 @@ const ScrollytellingContainer = () => {
   ];
 
   return (
-    <div className="bg-slate-800 min-h-screen text-gray-100 py-8">
+    <div className="bg-black min-h-screen text-white py-8">
       <div className="container mx-auto px-4">
-        <h1 className="text-3xl font-bold text-center mb-8">Denies and Dismissed: The Current Healthcare Appeals Crisis</h1>
+        <h1 className="text-3xl font-bold text-center mb-8 text-white">Denies and Dismissed: The Current Healthcare Appeals Crisis</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left side - Scrollable article */}
-          <div className="bg-slate-700 rounded-lg p-6 overflow-y-auto h-[80vh] relative">
+          <div className="bg-zinc-900 rounded-lg p-6 overflow-y-auto h-[80vh] relative shadow-xl border border-zinc-800">
             {articleSections.map((section, index) => (
               <div 
                 key={section.id}
                 ref={el => sections.current[index] = el}
-                className={`mb-8 pb-8 border-b border-gray-600 ${currentSection === index ? 'opacity-100' : 'opacity-70'}`}
+                className={`mb-8 pb-8 border-b border-zinc-700 ${currentSection === index ? 'opacity-100' : 'opacity-70'}`}
               >
-                <h2 className="text-xl font-semibold mb-4">{section.title}</h2>
+                <h2 className="text-xl font-semibold mb-4 text-white">{section.title}</h2>
                 {section.content}
               </div>
             ))}
             
             {/* Navigation buttons */}
-            <div className="sticky bottom-0 flex justify-between bg-slate-700 py-4">
+            <div className="sticky bottom-0 flex justify-between bg-gradient-to-t from-zinc-900 to-transparent py-4">
               <button 
                 onClick={goToPrevSection}
                 disabled={currentSection === 0}
-                className={`flex items-center px-4 py-2 rounded-full ${currentSection === 0 ? 'bg-gray-600 text-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'}`}
+                className={`flex items-center px-4 py-2 rounded-full ${currentSection === 0 ? 'bg-zinc-800 text-gray-500 cursor-not-allowed' : 'bg-white text-black hover:bg-gray-200'}`}
               >
                 <ChevronLeft size={16} className="mr-1" />
                 Previous
@@ -109,7 +109,7 @@ const ScrollytellingContainer = () => {
               <button 
                 onClick={goToNextSection}
                 disabled={currentSection === articleSections.length - 1}
-                className={`flex items-center px-4 py-2 rounded-full ${currentSection === articleSections.length - 1 ? 'bg-gray-600 text-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'}`}
+                className={`flex items-center px-4 py-2 rounded-full ${currentSection === articleSections.length - 1 ? 'bg-zinc-800 text-gray-500 cursor-not-allowed' : 'bg-white text-black hover:bg-gray-200'}`}
               >
                 Next
                 <ChevronRight size={16} className="ml-1" />
@@ -118,7 +118,7 @@ const ScrollytellingContainer = () => {
           </div>
           
           {/* Right side - Visualizations */}
-          <div className="bg-slate-700 rounded-lg p-6 h-[80vh] overflow-y-auto">
+          <div className="bg-zinc-900 rounded-lg p-6 h-[80vh] overflow-y-auto shadow-xl border border-zinc-800">
             {articleSections.map((section, index) => (
               <div 
                 key={`viz-${section.id}`}

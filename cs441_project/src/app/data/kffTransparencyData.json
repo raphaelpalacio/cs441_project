@@ -1,0 +1,165 @@
+{
+  "highlightedInsurers": [
+    { "name": "Oscar Health Plan (Illinois)", "denialRate": 29.5, "overturnRate": 22.3 },
+    { "name": "Ambetter from MHS (Indiana)", "denialRate": 49.2, "overturnRate": 18.7 },
+    { "name": "Celtic Insurance Company (Texas)", "denialRate": 49.7, "overturnRate": 15.2 },
+    { "name": "Friday Health Plans (Colorado)", "denialRate": 49.9, "overturnRate": 14.5 },
+    { "name": "Blue Cross Blue Shield (North Carolina)", "denialRate": 19.5, "overturnRate": 43.6 },
+    { "name": "Blue Care Network of Michigan", "denialRate": 23.0, "overturnRate": 88.6 }
+  ],
+  "appealsData": [
+    { "name": "Blue Care Network of Michigan", "overturnRate": 88.6, "appealsCount": 1247 },
+    { "name": "Moda Health Plan, Inc. (Oregon)", "overturnRate": 76.9, "appealsCount": 821 },
+    { "name": "Providence Health Plan (Oregon)", "overturnRate": 76.2, "appealsCount": 756 },
+    { "name": "McLaren Health Plan Community (Michigan)", "overturnRate": 74.0, "appealsCount": 689 }
+  ],
+  "stateData": [
+    { 
+      "state": "AL", 
+      "stateName": "Alabama", 
+      "denialRate": 32.4,
+      "appealRate": 0.0072,
+      "healthcareProviders": [
+        { "name": "Blue Cross Blue Shield of Alabama", "denialRate": 32.4, "overturnRate": 42.1, "appealsCount": 324 },
+        { "name": "UnitedHealthcare of Alabama", "denialRate": 28.7, "overturnRate": 38.5, "appealsCount": 187 },
+        { "name": "Aetna Alabama", "denialRate": 25.9, "overturnRate": 41.2, "appealsCount": 135 }
+      ]
+    },
+    { 
+      "state": "TX", 
+      "stateName": "Texas", 
+      "denialRate": 22.8,
+      "appealRate": 0.0041,
+      "healthcareProviders": [
+        { "name": "Celtic Insurance Company", "denialRate": 49.7, "overturnRate": 15.2, "appealsCount": 412 },
+        { "name": "Aetna Texas", "denialRate": 22.8, "overturnRate": 36.4, "appealsCount": 287 },
+        { "name": "UnitedHealthcare of Texas", "denialRate": 19.8, "overturnRate": 42.3, "appealsCount": 315 }
+      ]
+    },
+    { 
+      "state": "CO", 
+      "stateName": "Colorado", 
+      "denialRate": 15.7,
+      "appealRate": 0.0065,
+      "healthcareProviders": [
+        { "name": "Friday Health Plans", "denialRate": 49.9, "overturnRate": 14.5, "appealsCount": 241 },
+        { "name": "Kaiser Permanente Colorado", "denialRate": 15.7, "overturnRate": 53.8, "appealsCount": 275 },
+        { "name": "Anthem Blue Cross Blue Shield Colorado", "denialRate": 14.1, "overturnRate": 48.7, "appealsCount": 192 }
+      ]
+    },
+    { 
+      "state": "IL", 
+      "stateName": "Illinois", 
+      "denialRate": 20.5,
+      "appealRate": 0.0033,
+      "healthcareProviders": [
+        { "name": "Oscar Health Plan", "denialRate": 29.5, "overturnRate": 22.3, "appealsCount": 168 },
+        { "name": "Blue Cross Blue Shield of Illinois", "denialRate": 20.5, "overturnRate": 45.1, "appealsCount": 372 },
+        { "name": "UnitedHealthcare of Illinois", "denialRate": 18.7, "overturnRate": 39.7, "appealsCount": 245 }
+      ]
+    },
+    { 
+      "state": "IN", 
+      "stateName": "Indiana", 
+      "denialRate": 24.2,
+      "appealRate": 0.0057,
+      "healthcareProviders": [
+        { "name": "Ambetter from MHS", "denialRate": 49.2, "overturnRate": 18.7, "appealsCount": 203 },
+        { "name": "Anthem Blue Cross Blue Shield Indiana", "denialRate": 24.2, "overturnRate": 44.8, "appealsCount": 291 },
+        { "name": "CareSource Indiana", "denialRate": 22.1, "overturnRate": 37.4, "appealsCount": 127 }
+      ]
+    },
+    { 
+      "state": "MI", 
+      "stateName": "Michigan", 
+      "denialRate": 19.8,
+      "appealRate": 0.0124,
+      "healthcareProviders": [
+        { "name": "Blue Care Network of Michigan", "denialRate": 23.0, "overturnRate": 88.6, "appealsCount": 1247 },
+        { "name": "McLaren Health Plan Community", "denialRate": 18.6, "overturnRate": 74.0, "appealsCount": 689 },
+        { "name": "Blue Cross Blue Shield of Michigan", "denialRate": 19.8, "overturnRate": 60.3, "appealsCount": 835 },
+        { "name": "UnitedHealthcare of Michigan", "denialRate": 17.2, "overturnRate": 56.9, "appealsCount": 418 },
+        { "name": "Aetna Michigan", "denialRate": 15.8, "overturnRate": 52.7, "appealsCount": 305 }
+      ]
+    },
+    { 
+      "state": "OR", 
+      "stateName": "Oregon", 
+      "denialRate": 11.4,
+      "appealRate": 0.0095,
+      "healthcareProviders": [
+        { "name": "Moda Health Plan, Inc.", "denialRate": 10.3, "overturnRate": 76.9, "appealsCount": 821 },
+        { "name": "Providence Health Plan", "denialRate": 11.5, "overturnRate": 76.2, "appealsCount": 756 },
+        { "name": "Aetna Oregon", "denialRate": 11.4, "overturnRate": 55.3, "appealsCount": 327 },
+        { "name": "UnitedHealthcare of Oregon", "denialRate": 9.5, "overturnRate": 48.7, "appealsCount": 215 }
+      ]
+    },
+    { 
+      "state": "WY", 
+      "stateName": "Wyoming", 
+      "denialRate": 16.3,
+      "appealRate": 0.0028,
+      "healthcareProviders": [
+        { "name": "Blue Cross Blue Shield of Wyoming", "denialRate": 16.3, "overturnRate": 45.7, "appealsCount": 536 },
+        { "name": "UnitedHealthcare of Wyoming", "denialRate": 14.5, "overturnRate": 40.8, "appealsCount": 183 },
+        { "name": "Aetna Wyoming", "denialRate": 13.1, "overturnRate": 38.2, "appealsCount": 157 }
+      ]
+    },
+    { 
+      "state": "CA", 
+      "stateName": "California", 
+      "denialRate": 17.3,
+      "appealRate": 0.00035,
+      "healthcareProviders": [
+        { "name": "Molina Healthcare of California", "denialRate": 24.7, "overturnRate": 42.1, "appealsCount": 420 },
+        { "name": "Kaiser Permanente", "denialRate": 17.3, "overturnRate": 57.8, "appealsCount": 573 },
+        { "name": "Anthem Blue Cross", "denialRate": 15.8, "overturnRate": 52.3, "appealsCount": 384 },
+        { "name": "Blue Shield of California", "denialRate": 14.2, "overturnRate": 54.9, "appealsCount": 405 }
+      ]
+    },
+    { 
+      "state": "FL", 
+      "stateName": "Florida", 
+      "denialRate": 19.3,
+      "appealRate": 0.0046,
+      "healthcareProviders": [
+        { "name": "Florida Blue", "denialRate": 19.3, "overturnRate": 43.7, "appealsCount": 356 },
+        { "name": "UnitedHealthcare of Florida", "denialRate": 17.2, "overturnRate": 39.8, "appealsCount": 281 },
+        { "name": "Aetna Florida", "denialRate": 15.8, "overturnRate": 41.3, "appealsCount": 207 }
+      ]
+    },
+    { 
+      "state": "NY", 
+      "stateName": "New York", 
+      "denialRate": 14.3,
+      "appealRate": 0.0068,
+      "healthcareProviders": [
+        { "name": "Empire BlueCross BlueShield", "denialRate": 14.3, "overturnRate": 51.2, "appealsCount": 583 },
+        { "name": "UnitedHealthcare of New York", "denialRate": 12.3, "overturnRate": 48.7, "appealsCount": 435 },
+        { "name": "Aetna New York", "denialRate": 11.5, "overturnRate": 46.9, "appealsCount": 372 }
+      ]
+    },
+    { 
+      "state": "MA", 
+      "stateName": "Massachusetts", 
+      "denialRate": 12.1,
+      "appealRate": 0.0075,
+      "healthcareProviders": [
+        { "name": "Blue Cross Blue Shield of Massachusetts", "denialRate": 12.1, "overturnRate": 55.3, "appealsCount": 647 },
+        { "name": "Tufts Health Plan", "denialRate": 10.3, "overturnRate": 53.8, "appealsCount": 418 },
+        { "name": "Harvard Pilgrim", "denialRate": 9.7, "overturnRate": 57.1, "appealsCount": 385 }
+      ]
+    },
+    { 
+      "state": "WA", 
+      "stateName": "Washington", 
+      "denialRate": 13.7,
+      "appealRate": 0.0063,
+      "healthcareProviders": [
+        { "name": "Premera Blue Cross", "denialRate": 13.7, "overturnRate": 54.2, "appealsCount": 487 },
+        { "name": "Kaiser Permanente Washington", "denialRate": 12.8, "overturnRate": 58.3, "appealsCount": 518 },
+        { "name": "Molina Healthcare of Washington", "denialRate": 15.5, "overturnRate": 42.7, "appealsCount": 296 }
+      ]
+    }
+  ]
+} 

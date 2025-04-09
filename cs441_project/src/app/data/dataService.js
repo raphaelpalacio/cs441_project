@@ -1,14 +1,14 @@
 "use client";
 
-import mockData from './mockData.json';
+import kffData from './kffTransparencyData.json';
 
 /**
  * Get all data required for the healthcare visualizations
  * @returns {Object} Object containing stateData, highlightedInsurers, and appealsData
  */
 export const getAllData = () => {
-  console.log("Getting all data from JSON:", mockData !== undefined);
-  return mockData;
+  console.log("Getting all data from KFF Transparency dataset:", kffData !== undefined);
+  return kffData;
 };
 
 /**
@@ -17,7 +17,7 @@ export const getAllData = () => {
  * @returns {Object} State data including healthcare providers
  */
 export const getStateData = (stateCode) => {
-  const state = mockData.stateData.find(state => state.state === stateCode);
+  const state = kffData.stateData.find(state => state.state === stateCode);
   console.log(`Getting state data for ${stateCode}:`, state !== undefined);
   return state;
 };
@@ -27,8 +27,8 @@ export const getStateData = (stateCode) => {
  * @returns {Array} Array of state data
  */
 export const getAllStateData = () => {
-  console.log("Getting all state data:", mockData.stateData.length);
-  return mockData.stateData;
+  console.log("Getting all state data:", kffData.stateData.length);
+  return kffData.stateData;
 };
 
 /**
@@ -36,8 +36,8 @@ export const getAllStateData = () => {
  * @returns {Array} Array of insurers with high denial rates
  */
 export const getHighlightedInsurers = () => {
-  console.log("Getting highlighted insurers:", mockData.highlightedInsurers.length);
-  return mockData.highlightedInsurers;
+  console.log("Getting highlighted insurers:", kffData.highlightedInsurers.length);
+  return kffData.highlightedInsurers;
 };
 
 /**
@@ -45,6 +45,6 @@ export const getHighlightedInsurers = () => {
  * @returns {Array} Array of insurers with appeal overturn rates
  */
 export const getAppealsData = () => {
-  console.log("Getting appeals data:", mockData.appealsData.length);
-  return mockData.appealsData;
+  console.log("Getting appeals data:", kffData.appealsData.length);
+  return kffData.appealsData;
 }; 
