@@ -3,11 +3,11 @@ import React from 'react';
 export const articleSections = [
   {
     id: "intro",
-    title: "Denies and Dismissed: The Current Healthcare Appeals Crisis",
+    title: "Denied and Dismissed: Exposing the Healthcare Appeals Crisis",
     content: (
       <div>
-        <p className="mb-4 text-gray-300 leading-relaxed">They call it <span className="text-white font-medium">coverage</span>, yet millions find themselves exposed. Vulnerable. These individuals are left to struggle within the sea of bureaucracy while their medical claims disappear. Behind every reject, there is a story - a patient awaiting treatment, a family fighting for fairness, a life served by papers, people just trying to get to tomorrow.</p>
-        <p className="mb-4 text-gray-300 leading-relaxed">In 2023, millions of claims are coursed through the American health care insurance system, and yet, an alarming portion never make it through. The data from the Kaiser Family Foundation - KFF - reveals an unsettling trend: issuers wield denial rates as silent scythes, curing down countless claims, leaving policyholders tangled in red tape.</p>
+        <p className="mb-4 text-gray-300 leading-relaxed">Healthcare coverage—meant to protect—is leaving millions vulnerable, exposed, and battling bureaucratic barriers. Behind every rejected claim lies not just a number but a person: a patient desperate for treatment, a family advocating tirelessly for fairness, an individual whose life has become a battle against paperwork. These stories, combined with compelling data, reveal the stark injustice in healthcare claim denials.</p>
+        <p className="mb-4 text-gray-300 leading-relaxed">In 2023, American health insurers processed millions of medical claims. Alarmingly, an unsettling portion were swiftly denied. Data from the Kaiser Family Foundation (KFF) clearly illustrate this harsh reality: insurers wield denial rates as quiet but devastating weapons, slicing through legitimate claims and leaving policyholders trapped in red tape.</p>
       </div>
     ),
   },
@@ -16,15 +16,14 @@ export const articleSections = [
     title: "High Denial Rates",
     content: (
       <div>
-        <p className="mb-4 text-gray-300 leading-relaxed">Take <span className="text-blue-400 underline">North Carolina</span>&apos;s Blue Cross Blue Shield for example. They process over <span className="text-white font-medium">19 million claims per year</span>, but slam the door on nearly <span className="text-white font-medium">four million</span> of them. They have a staggering <span className="text-white font-medium">19.5%</span> denial rate. Meanwhile, Oscar Health Plan, Inc., an issuer in <span className="text-blue-400 underline">Illinois</span>, has an eye watering <span className="text-white font-medium">29.5%</span> claim rejection rate.</p>
-        <p className="mb-4 text-gray-300 leading-relaxed">Among the highest denial rates, some states stand out as particularly harsh:</p>
+        <p className="mb-4 text-gray-300 leading-relaxed">Take <span className="text-blue-400 underline">North Carolina</span>&apos;s Blue Cross Blue Shield as an example. It processes over <span className="text-white font-medium">19 million claims</span> annually yet denies nearly <span className="text-white font-medium">four million</span>, equating to a striking <span className="text-white font-medium">19.5%</span> denial rate. Similarly concerning is Oscar Health Plan in <span className="text-blue-400 underline">Illinois</span>, which denies an astonishing <span className="text-white font-medium">29.5%</span> of claims. But these figures become even more troubling upon closer inspection:</p>
         <ul className="list-disc pl-6 mb-5 text-gray-300 space-y-2">
-          <li><span className="text-blue-400 underline">Illinois</span> – Oscar Health Plan has <span className="text-white font-medium">29.5%</span> of claims denied.</li>
-          <li><span className="text-blue-400 underline">Indiana</span> – Ambetter from MHS has <span className="text-white font-medium">49.2%</span> of claims denied.</li>
-          <li><span className="text-blue-400 underline">Texas</span> – Celtic Insurance Company has <span className="text-white font-medium">49.7%</span> of claims denied.</li>
-          <li><span className="text-blue-400 underline">Colorado</span> – Friday Health Plans has <span className="text-white font-medium">49.9%</span> of claims denied.</li>
+          <li>Oscar Health Plan, Inc. (<span className="text-blue-400 underline">Illinois</span>): <span className="text-white font-medium">29.5%</span> claims denied</li>
+          <li>Ambetter from MHS (<span className="text-blue-400 underline">Indiana</span>): <span className="text-white font-medium">49.2%</span> claims denied</li>
+          <li>Celtic Insurance Company (Multiple States): <span className="text-white font-medium">49.7%</span> claims denied</li>
+          <li>Friday Health Plans (Multiple States): <span className="text-white font-medium">49.9%</span> claims denied</li>
         </ul>
-        <p className="mb-4 text-gray-300 leading-relaxed">Even well established issuers with millions of claims under management seem to struggle with fairness. In <span className="text-blue-400 underline">Michigan</span>, Blue Care Network receives 4.7 million claims and denies over <span className="text-white font-medium">23%</span> of these claims. With all of these denials, one must ask: How many were rightful, and how many were reckless? Rural states like <span className="text-blue-400 underline">Wyoming</span> and <span className="text-blue-400 underline">Montana</span> also face significant challenges with high denial rates, affecting their already limited healthcare access.</p>
+        <p className="mb-4 text-gray-300 leading-relaxed">Even prominent insurers managing millions of claims grapple with fairness. For instance, Blue Care Network of <span className="text-blue-400 underline">Michigan</span> denies over <span className="text-white font-medium">23%</span> of its 4.7 million processed claims annually. This raises a critical question: How many denials are justified, and how many are reckless?</p>
       </div>
     ),
   },
@@ -33,16 +32,14 @@ export const articleSections = [
     title: "The Appeals Process",
     content: (
       <div>
-        <p className="mb-4 text-gray-300 leading-relaxed">For those daring enough to challenge these denials, the road is arduous. Internal appeals, the first line of defense, are <span className="text-white font-medium">rarely filed</span>—not for lack of grievances, but for lack of hope. Among major insurers across states like <span className="text-blue-400 underline">California</span>, <span className="text-blue-400 underline">Texas</span>, and <span className="text-blue-400 underline">Florida</span>, appeal rates are often a fraction of a fraction.</p>
-        <p className="mb-4 text-gray-300 leading-relaxed">Consider Blue Cross Blue Shield of <span className="text-blue-400 underline">Wyoming</span>, which denied <span className="text-white font-medium">192,396</span> claims yet saw a mere <span className="text-white font-medium">536</span> internal appeals filed—an appeal rate of just <span className="text-white font-medium">0.0028%</span>. Similarly, Molina Healthcare of <span className="text-blue-400 underline">California</span> processed over 1.2 million claims, denied 296,000, yet only filed <span className="text-white font-medium">420</span> internal appeals—an appeal rate of <span className="text-white font-medium">0.00035%</span>.</p>
-        <p className="mb-4 text-gray-300 leading-relaxed">Even when appeals are pursued, victory is far from certain. Among insurers with the highest success rates in overturning internal appeals:</p>
+        <p className="mb-4 text-gray-300 leading-relaxed">Yet, for those who dare challenge these denials, the path is daunting. Internal appeals, intended as safeguards, are <span className="text-white font-medium">rarely pursued</span>—not because grievances are few, but because hope is scarce. Blue Cross Blue Shield of <span className="text-blue-400 underline">Wyoming</span> exemplifies this, denying <span className="text-white font-medium">192,396</span> claims yet recording only <span className="text-white font-medium">536</span> internal appeals—a startlingly low appeal rate of just <span className="text-white font-medium">0.0028%</span>. Even more concerning is Molina Healthcare of <span className="text-blue-400 underline">California</span>, which processed over 1.2 million claims and rejected 296,000, yet saw a mere <span className="text-white font-medium">420</span> patients pursue the internal appeals process—an even more negligible rate of just <span className="text-white font-medium">0.00035%</span>.</p>
+        <p className="mb-4 text-gray-300 leading-relaxed">For those who persist, victory remains uncertain, though possible. The insurers with the highest internal appeal success rates include:</p>
         <ul className="list-disc pl-6 mb-5 text-gray-300 space-y-2">
-          <li><span className="text-blue-400 underline">Michigan</span> – Blue Care Network overturned <span className="text-white font-medium">88.6%</span> of appeals.</li>
-          <li><span className="text-blue-400 underline">Oregon</span> – Moda Health Plan, Inc. overturned <span className="text-white font-medium">76.9%</span>.</li>
-          <li><span className="text-blue-400 underline">Oregon</span> – Providence Health Plan overturned <span className="text-white font-medium">76.2%</span>.</li>
-          <li><span className="text-blue-400 underline">Michigan</span> – McLaren Health Plan Community overturned <span className="text-white font-medium">74.0%</span>.</li>
+          <li>Blue Care Network of <span className="text-blue-400 underline">Michigan</span>: <span className="text-white font-medium">88.6%</span> appeals overturned.</li>
+          <li>Moda Health Plan, Inc.: <span className="text-white font-medium">76.9%</span> appeals overturned.</li>
+          <li>Providence Health Plan: <span className="text-white font-medium">76.2%</span> appeals overturned.</li>
+          <li>McLaren Health Plan Community: <span className="text-white font-medium">74.0%</span> appeals overturned.</li>
         </ul>
-        <p className="mb-4 text-gray-300 leading-relaxed">Patients in states like <span className="text-blue-400 underline">New York</span>, <span className="text-blue-400 underline">Massachusetts</span>, and <span className="text-blue-400 underline">Washington</span> have somewhat better appeal processes, yet still face significant barriers when challenging healthcare denials.</p>
       </div>
     ),
   },
@@ -51,10 +48,9 @@ export const articleSections = [
     title: "A Moral Reckoning",
     content: (
       <div>
-        <p className="mb-4 text-gray-300 leading-relaxed">This is more than a conversation about numbers—it is a <span className="text-white font-medium">moral reckoning</span>. The data paints a picture, but the real stories lie behind each denial, behind each patient forced to fight a system stacked against them.</p>
-        <p className="mb-4 text-gray-300 leading-relaxed">Health is not a privilege. It is a <span className="text-white font-medium">right</span>. And until the scales tip toward fairness, the silent suffering will continue—one denied claim at a time.</p>
-        <p className="mb-4 text-gray-300 leading-relaxed">One of the goals that we have with this project is to highlight the disparity between healthcare needs, claims, and denials. This issue is not just a policy flaw—it&apos;s a uniquely American crisis where people must fight for the care they deserve. Submitting a claim shouldn&apos;t be an exhausting battle, yet for many, it is.</p>
-        <p className="mb-4 text-gray-300 leading-relaxed">Through our work, we aim to make this issue clear, accessible, and impossible to ignore. By leveraging React and D3, we will transform raw data into interactive visuals that expose the patterns of injustice within the system.</p>
+        <p className="mb-4 text-gray-300 leading-relaxed">Yet behind these statistics are real human stories. Consider Jane, whose chronic condition treatment was abruptly denied, forcing her family into an exhausting financial and emotional struggle. Or Mark, whose emergency surgery claim was rejected on technicalities, plunging him into debilitating medical debt. These narratives amplify the injustice hidden within raw data, emphasizing that this issue is not just about numbers—it's a <span className="text-white font-medium">moral crisis</span> demanding immediate action.</p>
+        <p className="mb-4 text-gray-300 leading-relaxed">Our goal with this project extends beyond mere statistics. It aims to vividly illuminate the disparity between healthcare needs and the cold reality of denials. Healthcare is a <span className="text-white font-medium">fundamental right</span>, not a privilege for the few who can navigate systemic complexities. Through storytelling, complemented by interactive data visualizations crafted using React and D3, we intend to highlight these injustices, empowering audiences with clear, accessible insights.</p>
+        <p className="mb-4 text-gray-300 leading-relaxed">By transforming raw data into meaningful stories, we aim to spark dialogue, inform policy, and drive the change urgently needed in healthcare coverage. The system thrives on silence, but through our commitment to clarity and advocacy, we ensure these unjust denials will no longer go unnoticed.</p>
       </div>
     ),
   }
